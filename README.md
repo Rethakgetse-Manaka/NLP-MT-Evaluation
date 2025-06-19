@@ -156,7 +156,7 @@ python eval_nllb.py -l zul -s devtest
 This notebook uses OpenAI's GPT models to classify and explain translation errors between original and corrected translations.
 
 ### 1. Open the Notebook
-- Launch Jupyter and open `LLM Error Detection/llm-error-detection.ipynb`.
+- Launch Jupyter (It is highly recommended that you use Google Colab) and open `LLM Error Detection/llm-error-detection.ipynb`.
 
 ### 2. Install Required Packages (if needed)
 The first cells will prompt you to install any missing packages:
@@ -176,6 +176,7 @@ Edit the cell where `openai.OpenAI(api_key="<YOUR_API_KEY>")` is called, replaci
 
 ### 5. Run the Notebook
 - The notebook will load datasets, align translations, and use GPT to classify and explain errors.
+- Please note that should run the error detection on the entire dataset it may take 20+ minutes per language before completing. (Instructions on sampling are included in the comments).
 - Results are summarized and grouped by error type.
 
 ---
