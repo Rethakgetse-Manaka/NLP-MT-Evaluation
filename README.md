@@ -8,16 +8,28 @@ This repository contains two main projects for evaluating machine translation (M
 ---
 
 ## Table of Contents
-- [Project Structure](#project-structure)
-- [Setup Instructions](#setup-instructions)
-- [Getting API Keys](#getting-api-keys)
-  - [HuggingFace Access Token](#huggingface-access-token)
-  - [OpenAI API Key](#openai-api-key)
-  - [Google Cloud Translation API Key](#google-cloud-translation-api-key)
-- [Translation-Evaluation Usage](#translation-evaluation-usage)
-- [LLM Error Detection Usage](#llm-error-detection-usage)
-- [Evaluation Metrics Explained](#evaluation-metrics-explained)
-- [Troubleshooting](#troubleshooting)
+- [NLP-MT-Evaluation Workspace](#nlp-mt-evaluation-workspace)
+  - [Table of Contents](#table-of-contents)
+  - [Project Structure](#project-structure)
+  - [Setup Instructions](#setup-instructions)
+  - [Getting API Keys](#getting-api-keys)
+    - [HuggingFace Access Token](#huggingface-access-token)
+    - [OpenAI API Key](#openai-api-key)
+    - [Google Cloud Translation API Key](#google-cloud-translation-api-key)
+  - [For further instructions go to https://cloud.google.com/translate/docs/basic/translate-text-basic#translate\_translate\_text-python](#for-further-instructions-go-to-httpscloudgooglecomtranslatedocsbasictranslate-text-basictranslate_translate_text-python)
+  - [Translation-Evaluation Usage](#translation-evaluation-usage)
+    - [1. Prepare Environment](#1-prepare-environment)
+    - [2. Run Evaluation](#2-run-evaluation)
+    - [3. Output](#3-output)
+  - [LLM Error Detection Usage](#llm-error-detection-usage)
+    - [1. Open the Notebook](#1-open-the-notebook)
+    - [2. Install Required Packages (if needed)](#2-install-required-packages-if-needed)
+    - [3. Authenticate with HuggingFace](#3-authenticate-with-huggingface)
+    - [4. Set Up OpenAI API Key](#4-set-up-openai-api-key)
+    - [5. Run the Notebook](#5-run-the-notebook)
+  - [Evaluation Metrics Explained](#evaluation-metrics-explained)
+  - [Troubleshooting](#troubleshooting)
+  - [Contact](#contact)
 
 ---
 
@@ -111,7 +123,7 @@ For Google Translate integration in `Translation-Evaluation`:
    ```env
    GOOGLE_API_KEY=your_google_api_key_here
    ```
-
+For further instructions go to https://cloud.google.com/translate/docs/basic/translate-text-basic#translate_translate_text-python
 ---
 
 ## Translation-Evaluation Usage
@@ -144,7 +156,7 @@ python eval_nllb.py -l zul -s devtest
 This notebook uses OpenAI's GPT models to classify and explain translation errors between original and corrected translations.
 
 ### 1. Open the Notebook
-- Launch Jupyter and open `LLM Error Detection/llm-error-detection.ipynb`.
+- Launch Jupyter (It is highly recommended that you use Google Colab) and open `LLM Error Detection/llm-error-detection.ipynb`.
 
 ### 2. Install Required Packages (if needed)
 The first cells will prompt you to install any missing packages:
@@ -164,6 +176,7 @@ Edit the cell where `openai.OpenAI(api_key="<YOUR_API_KEY>")` is called, replaci
 
 ### 5. Run the Notebook
 - The notebook will load datasets, align translations, and use GPT to classify and explain errors.
+- Please note that should run the error detection on the entire dataset it may take 20+ minutes per language before completing. (Instructions on sampling are included in the comments).
 - Results are summarized and grouped by error type.
 
 ---
